@@ -1,0 +1,33 @@
+---
+title: "Notes"
+author: "Juan Rocha"
+output: html_document
+---
+
+
+**J231006:** 
+
+There has been some progress. I'm working with the data all in R. The time series filtering is 
+currently using STL for detrending and decomposition of multiple seasonalities. I could revisit
+the Fourier transform option. But the Julia code is optimized to work on the cube array format.
+I'd need to write the function to do the same in R for each vector. The `forecast` package
+offers time series modeling tools that could mimic the Fourier transform, or other tools for 
+seasonality. For now, working with STL. Test later differences when applying Fourier.
+
+Next steps:
+
+- Implement uniroot test
+- Implement segmented regressions (test for changes in slopes and detection of time points)
+- Build the visualizations of the SM: all metrics showing the extremes. 
+- Implement delta with respect to biomes.
+- Process datasets for regressions of explanatory factors (temp, prec, landuse, etc.)
+
+
+**J230818**
+
+**Importing data:**
+
+There is a few options:
+
+1. Import each nc file in R, crop the Colombian data, create new nc for the subset and in bash merge the files over time. [failed]
+2. Alternatively do the merge in R if you figure it out. [suceed: working on dataframe format]
